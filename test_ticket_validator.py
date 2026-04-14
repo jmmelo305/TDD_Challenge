@@ -1,10 +1,10 @@
 import pytest
-from ticket_validator import *
+from ticket_validator import validate_ticket, get_ticket_tier, calculate_total
 
 @pytest.mark.parametrize ("code, expected", [
-    ("TK123456", True)
-    ("TK329503", True)
-    ("TKS$4523", False)
+    ("TK123456", True),
+    ("TK329503", True),
+    ("TKS$4523", False),
     ("TX123456", False)
 ])
 
@@ -16,8 +16,8 @@ def test_validate_ticket_type_error ():
         validate_ticket(12345678)
 
 @pytest.mark.parametrize ("code, expected", [
-    ("TK123456", "General")
-    ("TK524325", "VIP")
+    ("TK123456", "General"),
+    ("TK524325", "VIP"),
     ("TK712397", "Platinum")
 ])
 

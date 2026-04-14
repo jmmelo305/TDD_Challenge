@@ -6,4 +6,3 @@ def get_ticket_tier (code):
 
 def calculate_total(prices, discount = 0):
     pass
-    
