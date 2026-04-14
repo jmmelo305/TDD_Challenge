@@ -4,7 +4,7 @@ from ticket_validator import validate_ticket, get_ticket_tier, calculate_total
 @pytest.mark.parametrize ("code, expected", [
     ("TK123456", True),
     ("TK329503", True),
-    ("TKS$4523", False),
+    ("TK9$4523", False),
     ("TX123456", False)
 ])
 
@@ -26,7 +26,7 @@ def test_get_ticket_tier_valid (code, expected):
 
 def test_get_ticket_tier_invalid ():
     with pytest.raises(ValueError):
-        get_ticket_tier(TKS14050)
+        get_ticket_tier(TK124500)
 
 def test_calculate_total_basic ():
     assert calculate_total([10.0, 20.0], 0.1) == 27.0

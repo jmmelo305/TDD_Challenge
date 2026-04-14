@@ -30,4 +30,16 @@ def get_ticket_tier (code):
     
 
 def calculate_total(prices, discount = 0):
-    pass
+    if not isinstance (prices, list):
+        raise TypeError ("Prices must be a list")
+    
+    if len(prices) == 0:
+        raise ValueError ("Can not have an empty price list")
+    
+    if not (0 <= discount <= 1):
+        raise ValueError ("Can not have a discount value below 0, or higher than 1")
+    
+    total = sum(prices)
+    total_after_discount = total * (1 - discount)
+
+    return round(total_after_discount, 2)
