@@ -15,7 +15,19 @@ def validate_ticket (code):
 
 
 def get_ticket_tier (code):
-    pass
+
+    if not validate_ticket (code):
+        raise ValueError ("Not a valid ticket code")
+
+    first_digit = int(code [2])
+
+    if 0 <= first_digit <= 3:
+        return "General"
+    elif 4 <= first_digit <= 6:
+        return "VIP"
+    elif 7 <= first_digit <= 9:
+        return "Platinum"
+    
 
 def calculate_total(prices, discount = 0):
     pass
